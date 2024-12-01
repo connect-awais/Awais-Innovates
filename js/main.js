@@ -275,3 +275,24 @@
 
 })(jQuery);
 
+// Open Dialog Box
+function openDialog() {
+	console.log("Opening dialog...");
+	document.getElementById("hireMeDialog").style.display = "flex";
+  }
+  
+  // Close Dialog Box
+  function closeDialog() {
+	console.log("Closing dialog...");
+	document.getElementById("hireMeDialog").style.display = "none";
+  }
+  
+  // Handle Form Submission
+  document.addEventListener("DOMContentLoaded", function () {
+	const form = document.getElementById("hireMeForm");
+	form.addEventListener("submit", function (e) {
+	  e.preventDefault(); // Prevent page reload
+	  alert("Thank you for submitting your details! We’ll get back to you soon.");
+	  closeDialog();
+	});
+  });
