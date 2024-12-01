@@ -776,6 +776,30 @@ body {
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
+	   <!-- Hire Me Button -->
+   <a href="#!" class="hire-me-button" onclick="openDialog()">Hire Me</a>
+
+   <!-- Dialog Box -->
+   <div id="hireMeDialog" class="dialog-box">
+     <div class="dialog-content">
+       <h2>Hire Me</h2>
+       <form id="hireMeForm">
+         <label for="name">Name:</label>
+         <input type="text" id="name" name="name" required>
+ 
+         <label for="email">Email:</label>
+         <input type="email" id="email" name="email" required>
+ 
+         <label for="description">Project Description:</label>
+         <textarea id="description" name="description" required></textarea>
+ 
+         <div class="dialog-buttons">
+           <button type="submit">Submit</button>
+           <button type="button" onclick="closeDialog()">Cancel</button>
+         </div>
+       </form>
+     </div>
+   </div>
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -791,10 +815,6 @@ body {
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
-
-	   <div class="navbar">
-    <a href="#contact" class="hire-me-button">Hire Me</a>
-  </div>
     
   </body>
 </html>
