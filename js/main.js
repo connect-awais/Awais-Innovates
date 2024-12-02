@@ -279,6 +279,8 @@
 function openDialog() {
 	console.log("Opening dialog...");
 	document.getElementById("hireMeDialog").style.display = "flex";
+
+	document.getElementById("hireMeForm").reset();
   }
   
   // Close Dialog Box
