@@ -290,9 +290,37 @@ function openDialog() {
   // Handle Form Submission
   document.addEventListener("DOMContentLoaded", function () {
 	const form = document.getElementById("hireMeForm");
+  
+	// Add Form Submit Event Listener
 	form.addEventListener("submit", function (e) {
 	  e.preventDefault(); // Prevent page reload
-	  alert("Thank you for submitting your details! We’ll get back to you soon.");
-	  closeDialog();
+  
+	  // Collect form data
+	  const formData = new FormData(form);
+  
+	  // Send form data to Formspree using Fetch API
+	  fetch('https://formspree.io/f/mjkvjwql', {
+		method: 'POST',
+		body: formData,
+		headers: {
+		  'Accept': 'application/json' // Ensures the server knows we expect a JSON response
+		}
+	  })
+	  .then(response => response.json())  // Convert the response to JSON for debugging
+	  .then(data => {
+		if (data.ok) {
+		  // If the submission is successful, show the success message
+		  alert("Thank you for submitting your details! We’ll get back to you soon.");
+		  closeDialog(); // Close the dialog
+		} else {
+		  alert("Oops! Something went wrong. Please try again later.");
+		  console.log(data); // Log the error data for debugging
+		}
+	  })
+	  .catch(error => {
+		alert("An error occurred while submitting the form. Please try again later.");
+		console.error('Error:', error); // Log the error for debugging
+	  });
 	});
   });
+  
